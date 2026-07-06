@@ -1,4 +1,4 @@
-# Photography Website - PHP & Docker Setup
+# myportfolio Website - PHP & Docker Setup
 
 ## Prerequisites
 - Docker and Docker Compose installed on your Raspberry Pi
