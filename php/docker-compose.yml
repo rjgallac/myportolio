@@ -22,7 +22,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - /var/log/apps/myportfolio/nginx:/var/log/nginx
     depends_on:
-      - php-fpm
+      - myportfolio-php-fpm
     networks:
       - myportfolio-network
 
