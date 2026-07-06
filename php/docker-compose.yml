@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  php-fpm:
+  myportfolio-php-fpm:
     build: .
     container_name: myportfolio-php
     env_file:
@@ -12,7 +12,7 @@ services:
     networks:
       - myportfolio-network
 
-  nginx:
+  myportfolio-nginx:
     image: nginx:alpine
     container_name: myportfolio-nginx
     ports:
