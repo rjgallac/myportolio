@@ -3,32 +3,32 @@ version: "3.8"
 services:
   php-fpm:
     build: .
-    container_name: photography-php
+    container_name: myportfolio-php
     env_file:
       - .env
     volumes:
       - ..:/var/www/html
-      - /var/log/apps/photography:/var/www/html/logs
+      - /var/log/apps/myportfolio:/var/www/html/logs
     networks:
-      - photography-network
+      - myportfolio-network
 
   nginx:
     image: nginx:alpine
-    container_name: photography-nginx
+    container_name: myportfolio-nginx
     ports:
-      - "83:80"
+      - "82:80"
     volumes:
       - ..:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - /var/log/apps/photography/nginx:/var/log/nginx
+      - /var/log/apps/myportfolio/nginx:/var/log/nginx
     depends_on:
       - php-fpm
     networks:
-      - photography-network
+      - myportfolio-network
 
 # volumes:
 #   logs:
 
 networks:
-  photography-network:
+  myportfolio-network:
     driver: bridge

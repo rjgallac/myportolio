@@ -46,9 +46,6 @@ try {
 
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-    $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
-    $service = isset($_POST['service']) ? trim($_POST['service']) : '';
-    $event_date = isset($_POST['event-date']) ? trim($_POST['event-date']) : '';
     $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
     if (empty($name) || empty($email) || empty($message)) {
@@ -67,9 +64,6 @@ try {
         'subject'     => 'Contact Form Submission',
         'name'        => $name,
         'email'       => $email,
-        'phone'       => $phone,
-        'service'     => $service,
-        'event_date'  => $event_date,
         'message'     => $message
     ];
 
@@ -80,11 +74,7 @@ try {
         mkdir($log_dir, 0755, true);
     }
 
-    $email_body = "Name: $name\nEmail: $email";
-    if (!empty($phone)) $email_body .= "\nPhone: $phone";
-    if (!empty($service)) $email_body .= "\nService: $service";
-    if (!empty($event_date)) $email_body .= "\nEvent Date: $event_date";
-    $email_body .= "\n\nMessage:\n$message\n";
+    $email_body = "Name: $name\nEmail: $email\n\nMessage:\n$message\n";
 
     // Convert the array to a single-line JSON string
     // JSON_UNESCAPED_SLASHES and JSON_UNESCAPED_UNICODE make it more readable
